@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rahel Karim | DevSecOps & Cloud Operations</title>
+
+    <!-- Google Material Icons & FontAwesome -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Oma tyylitiedosto -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ELÄVÄ TAUSTAMOOTTORI: DATAVIRTA, VALOT JA RULLAAVA RUUDUKKO -->
+    <div class="cyber-bg-engine">
+        <div class="glow-orb orb-cyan"></div>
+        <div class="glow-orb orb-blue"></div>
+        <div class="moving-grid"></div>
+
+        <!-- Putoavat kybersäteet / datavirrat -->
+        <div class="cyber-stream stream-1"></div>
+        <div class="cyber-stream stream-2"></div>
+        <div class="cyber-stream stream-3"></div>
+        <div class="cyber-stream stream-4"></div>
+        <div class="cyber-stream stream-5"></div>
+    </div>
+
+    <!-- YLÄPALKKI / TELEMETRIA-NAV -->
+    <div class="navbar-fixed">
+        <nav class="nav-mission-control">
+            <div class="container">
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo brand-tag mono-font">
+                        <span class="telemetry-light"></span>RK://SYS_OPS
+                    </a>
+                    <a href="#" data-target="mobile-sidenav" class="sidenav-trigger right">
+                        <i class="material-icons cyan-text">menu</i>
+                    </a>
+                    <ul class="right hide-on-med-and-down mono-font">
+                        <li><a href="#overview">_overview</a></li>
+                        <li><a href="#deployments">_projects</a></li>
+                        <li><a href="#telemetry">_stack & experience</a></li>
+                        <li><a href="#contact-uplink">_contact</a></li>
+                        <li>
+                            <a href="./Assets/Rahel_Karim_CV.pdf" download
+                                class="btn-cv-download waves-effect waves-light">
+                                <i class="material-icons left tiny">download</i>CV.pdf
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- MOBIILIVALIKKO -->
+    <ul class="sidenav cyber-sidenav mono-font" id="mobile-sidenav">
+        <li class="user-header">
+            <span class="cyan-text">&gt; RAHEL_KARIM</span>
+            <p class="grey-text text-lighten-1" style="margin: 5px 0 0; font-size: 0.85rem;">DevSecOps & Cloud Security
+            </p>
+        </li>
+        <li>
+            <div class="divider grey darken-3"></div>
+        </li>
+        <li><a href="#overview" class="waves-effect"><i class="material-icons cyan-text">terminal</i>Overview</a></li>
+        <li><a href="#deployments" class="waves-effect"><i class="material-icons cyan-text">view_in_ar</i>Projects</a>
+        </li>
+        <li><a href="#telemetry" class="waves-effect"><i class="material-icons cyan-text">memory</i>Stack & History</a>
+        </li>
+        <li><a href="#contact-uplink" class="waves-effect"><i class="material-icons cyan-text">send</i>Contact
+                Uplink</a></li>
+        <li>
+            <a href="./Assets/Rahel_Karim_CV.pdf" download class="cyan-text text-accent-3">
+                <i class="material-icons cyan-text text-accent-3">file_download</i>Lataa CV (.pdf)
+            </a>
+        </li>
+    </ul>
+
+    <!-- 1. PÄÄOSIO: COMMAND CONSOLE HERO -->
+    <header class="section hero-console" id="overview">
+        <div class="container">
+            <div class="row valign-wrapper" style="flex-wrap: wrap;">
+
+                <div class="col s12 m7">
+                    <div class="terminal-badge mono-font">
+                        <i class="fa-solid fa-code-commit"></i> PIPELINE STATUS: PRODUCTION-READY
+                    </div>
+                    <h1 class="hero-title">
+                        Rahel Karim
+                    </h1>
+                    <p class="hero-role mono-font">
+                        ENGINEERING STUDENT <span class="cyan-text">@ METROPOLIA</span> // DEVSECOPS & CLOUD
+                    </p>
+                    <p class="hero-lead">
+                        Siltaan mekaanisen vianetsinnän, autosähkön järjestelmäohjelmoinnin ja modernin
+                        pilvi-infrastruktuurin toisiinsa. Rakennan kestäviä, turvallisia ja automaatioon perustuvia
+                        järjestelmiä.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#deployments" class="btn-large waves-effect waves-light btn-accent mono-font">
+                            Explore Deployments <i class="material-icons right">arrow_downward</i>
+                        </a>
+                        <a href="https://github.com/rahelkarim07-ux" target="_blank" rel="noopener noreferrer"
+                            class="btn-large btn-flat waves-effect btn-outline mono-font">
+                            <i class="fa-brands fa-github left"></i> GitHub Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Live-status konsoli -->
+                <div class="col s12 m5">
+                    <div class="console-box z-depth-4">
+                        <div class="console-topbar">
+                            <span class="circle-btn red-btn"></span>
+                            <span class="circle-btn yellow-btn"></span>
+                            <span class="circle-btn green-btn"></span>
+                            <span class="console-title mono-font">node_inspector.sh</span>
+                        </div>
+                        <div class="console-content mono-font">
+                            <p><span class="green-text">guest@edge:~$</span> sys_telemetry --identity</p>
+                            <p class="output-row"><span class="grey-text">LOCATION:</span> Espoo, FI</p>
+                            <p class="output-row"><span class="grey-text">ACADEMICS:</span> Metropolia UAS (Eng) +
+                                Taitotalo</p>
+                            <p class="output-row"><span class="grey-text">SPECIALIZATION:</span> Linux & Cloud
+                                Operations</p>
+                            <p class="output-row"><span class="grey-text">FOCUS:</span> IoT, Azure/AWS, CI/CD, CyberSec
+                            </p>
+                            <p class="output-row"><span class="grey-text">UPTIME:</span> 100% Operational</p>
+                            <div class="typing-line" style="margin-top: 10px;">
+                                <span class="green-text">guest@edge:~$</span> <span class="cursor">_</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. PROJEKTIT & JULKISET REPOT -->
+    <section class="section scrollspy" id="deployments">
+        <div class="container">
+            <div class="section-heading">
+                <span class="mono-font cyan-text text-accent-3">// PORTFOLIO_REPOSITORIES</span>
+                <h2>Deployatut ratkaisut & projektit</h2>
+                <p class="grey-text text-lighten-1">Konkreettista työtä koodista järjestelmäarkkitehtuuriin.</p>
+            </div>
+
+            <div class="row">
+                <!-- Projekti 1 -->
+                <div class="col s12 m4">
+                    <div class="card project-card z-depth-2">
+                        <div class="card-content">
+                            <div class="project-type mono-font"><i class="fa-solid fa-layer-group"></i> PRODUCTION</div>
+                            <span class="card-title">Rahel-Portfolio</span>
+                            <p class="card-desc">
+                                Pääportfolio ja arkkitehtuuridokumentaatio: sisältää kattavat UML-mallit,
+                                sprinttiaikataulut sekä laadunvarmistussuunnitelmat.
+                            </p>
+                            <div class="chip-container">
+                                <span class="chip-tag">Materialize</span>
+                                <span class="chip-tag">UML</span>
+                                <span class="chip-tag">GitHub Pages</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#modal-portfolio"
+                                class="modal-trigger mono-font cyan-text text-accent-3">Arkkitehtuuri &rarr;</a>
+                            <a href="https://github.com/rahelkarim07-ux/Rahel-Portfolio" target="_blank"
+                                rel="noopener noreferrer" class="right grey-text">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projekti 2 -->
+                <div class="col s12 m4">
+                    <div class="card project-card z-depth-2">
+                        <div class="card-content">
+                            <div class="project-type mono-font"><i class="fa-solid fa-code"></i> VISUAL ENGINE</div>
+                            <span class="card-title">web18animpro</span>
+                            <p class="card-desc">
+                                Cyberpunk-teemainen verkkoratkaisu, jossa optimoitiin raskaat lasipinnat
+                                (glassmorphism), dynaamiset skriptit ja AOS-vieritysanimaatiot.
+                            </p>
+                            <div class="chip-container">
+                                <span class="chip-tag">JavaScript</span>
+                                <span class="chip-tag">AOS</span>
+                                <span class="chip-tag">CSS3 Glow</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#modal-anim" class="modal-trigger mono-font cyan-text text-accent-3">Analyysi
+                                &rarr;</a>
+                            <a href="https://github.com/rahelkarim07-ux/web18animpro" target="_blank"
+                                rel="noopener noreferrer" class="right grey-text">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projekti 3 -->
+                <div class="col s12 m4">
+                    <div class="card project-card z-depth-2">
+                        <div class="card-content">
+                            <div class="project-type mono-font"><i class="fa-solid fa-microchip"></i> AUTOMATION &
+                                HARDWARE</div>
+                            <span class="card-title">Automotive & IoT Lab</span>
+                            <p class="card-desc">
+                                Autosähkön väylädiagnostiikkaa, laiteohjelmointia Linux-terminaalista sekä IoT-alustojen
+                                turvallisuuden testausta.
+                            </p>
+                            <div class="chip-container">
+                                <span class="chip-tag">Linux CLI</span>
+                                <span class="chip-tag">CAN / ECU</span>
+                                <span class="chip-tag">Diagnostics</span>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="#modal-hardware"
+                                class="modal-trigger mono-font cyan-text text-accent-3">Toimintatapa &rarr;</a>
+                            <span class="right green-text mono-font text-small">OPERATIONAL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DOKUMENTAATIO-MODAALIT -->
+    <div id="modal-portfolio" class="modal terminal-modal">
+        <div class="modal-content">
+            <h4 class="mono-font cyan-text text-accent-3">&gt; Rahel-Portfolio Arkkitehtuuri</h4>
+            <p class="grey-text text-lighten-2">
+                Repo pitää sisällään modulaarisen koodirakenteen ja kurinalaisen kehityksen dokumentaation:
+            </p>
+            <ul class="modal-list mono-font">
+                <li><code>uml_kaavio.md</code>: Järjestelmän oliot, vuorovaikutukset ja sivurakenne.</li>
+                <li><code>aikataulutus.md</code>: Sprinttien vaiheistus ja julkaisupolku.</li>
+                <li><code>testaussuunnitelma.md</code>: Responsiivisuuden ja selainyhteensopivuuden testitapaukset.</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect btn-flat grey-text text-lighten-1 mono-font">Sulje [ESC]</a>
+        </div>
+    </div>
+
+    <div id="modal-anim" class="modal terminal-modal">
+        <div class="modal-content">
+            <h4 class="mono-font cyan-text text-accent-3">&gt; web18animpro Suorituskyky</h4>
+            <p class="grey-text text-lighten-2">
+                Projektissa testattiin graafisen renderöinnin suorituskykyä mobiililaitteissa:
+            </p>
+            <ul class="modal-list mono-font">
+                <li>Backdrop-filter -sumennusten GPU-kiihdytys ilman nykimistä.</li>
+                <li>IntersectionObserver-toteutukset raskaiden skriptien optimointiin.</li>
+                <li>Zero-dependency periaate erittäin nopeaan sivulataukseen.</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect btn-flat grey-text text-lighten-1 mono-font">Sulje [ESC]</a>
+        </div>
+    </div>
+
+    <div id="modal-hardware" class="modal terminal-modal">
+        <div class="modal-content">
+            <h4 class="mono-font cyan-text text-accent-3">&gt; Diagnostics & System Programming</h4>
+            <p class="grey-text text-lighten-2">
+                Käytännön kokemus ajoneuvoelektroniikan ja laitteistotason vianetsinnästä:
+            </p>
+            <ul class="modal-list mono-font">
+                <li>Linux-ympäristöjen valjastaminen laitteistovianetsintään ja telemetriaan.</li>
+                <li>Moottorinohjausyksiköiden parametrisointi ja väyläliikenteen tarkkailu.</li>
+                <li>Reaalimaailman ongelmanratkaisukyky kriittisissä järjestelmissä.</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect btn-flat grey-text text-lighten-1 mono-font">Sulje [ESC]</a>
+        </div>
+    </div>
+
+    <!-- 3. MATERIALIZE TABS: OSAAMINEN, TYÖHISTORIA & SERTIT -->
+    <section class="section scrollspy" id="telemetry">
+        <div class="container">
+            <div class="section-heading">
+                <span class="mono-font cyan-text text-accent-3">// SYSTEM_METRICS</span>
+                <h2>Osaaminen, Tausta & Tavoitteet</h2>
+            </div>
+
+            <div class="telemetry-wrapper z-depth-3">
+                <div class="row" style="margin-bottom: 0;">
+                    <div class="col s12" style="padding: 0;">
+                        <ul class="tabs tabs-cyber">
+                            <li class="tab col s4"><a class="active" href="#tab-tech">Teknologiat</a></li>
+                            <li class="tab col s4"><a href="#tab-experience">Työhistoria</a></li>
+                            <li class="tab col s4"><a href="#tab-certs">Sertifiointipolku</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- TAB 1: TEKNOLOGIAT -->
+                    <div id="tab-tech" class="col s12 tab-pane">
+                        <div class="row">
+                            <div class="col s12 m4">
+                                <h5 class="tab-subtitle"><i class="fa-solid fa-cloud cyan-text"></i> Cloud & Security
+                                </h5>
+                                <p class="grey-text">Pilvi-infran perusteet, pääsynhallinta (IAM), ja kyberturvan
+                                    arkkitehtuurit:</p>
+                                <div class="skill-meter">
+                                    <span>Azure & AWS Cloud Foundations</span>
+                                    <div class="meter-bar">
+                                        <div class="meter-fill" style="width: 75%;"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-meter">
+                                    <span>Verkkoinfrastruktuuri (TCP/IP, DHCP, DNS)</span>
+                                    <div class="meter-bar">
+                                        <div class="meter-fill" style="width: 85%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col s12 m4">
+                                <h5 class="tab-subtitle"><i class="fa-solid fa-terminal cyan-text"></i> OS &
+                                    Järjestelmät</h5>
+                                <p class="grey-text">Järjestelmäylläpito ja komentorivityökalut:</p>
+                                <div class="skill-meter">
+                                    <span>Linux (Ubuntu, Kali CLI)</span>
+                                    <div class="meter-bar">
+                                        <div class="meter-fill" style="width: 90%;"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-meter">
+                                    <span>Virtualisointi & Tiedostosalaus (VeraCrypt)</span>
+                                    <div class="meter-bar">
+                                        <div class="meter-fill" style="width: 80%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col s12 m4">
+                                <h5 class="tab-subtitle"><i class="fa-solid fa-code cyan-text"></i> Web & Scripting</h5>
+                                <p class="grey-text">Rajapinnat, automaatio ja kehitys:</p>
+                                <div class="skill-meter">
+                                    <span>HTML5, CSS3, JavaScript, Materialize</span>
+                                    <div class="meter-bar">
+                                        <div class="meter-fill" style="width: 85%;"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-meter">
+                                    <span>Git, GitHub Actions & CI-rutiinit</span>
+                                    <div class="meter-bar">
+                                        <div class="meter-fill" style="width: 80%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: TYÖHISTORIA -->
+                    <div id="tab-experience" class="col s12 tab-pane">
+                        <div class="timeline-stream mono-font">
+                            <div class="stream-entry">
+                                <span class="stream-date">2021 – 2024</span>
+                                <h6>Workshop Supervisor</h6>
+                                <p class="grey-text">Korjaamotoiminnan operatiivinen johto, tiimin koordinointi,
+                                    diagnostiikka ja B2B-dokumentaatio.</p>
+                            </div>
+                            <div class="stream-entry">
+                                <span class="stream-date">2018 – 2021</span>
+                                <h6>Parts Specialist // RK varaosat</h6>
+                                <p class="grey-text">Teknisten osien logistiikka, yhteensopivuuksien kartoitus ja
+                                    asiakaskonsultointi.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: SERTIT -->
+                    <div id="tab-certs" class="col s12 tab-pane">
+                        <div class="row">
+                            <div class="col s12 m4">
+                                <div class="cert-block">
+                                    <div class="cert-status status-ready mono-font">STAGE: SYNC_READY</div>
+                                    <h6 class="cert-name">CompTIA Security+</h6>
+                                    <p class="grey-text text-small">Tietoverkkojen turvaaminen, uhkamallit ja
+                                        operatiivinen tietoturva.</p>
+                                </div>
+                            </div>
+                            <div class="col s12 m4">
+                                <div class="cert-block">
+                                    <div class="cert-status status-progress mono-font">STAGE: IN_PROGRESS</div>
+                                    <h6 class="cert-name">AWS Cloud Practitioner</h6>
+                                    <p class="grey-text text-small">AWS-pilvipalvelujen arkkitehtuuri, skaalautuvuus ja
+                                        turvallisuusmallit.</p>
+                                </div>
+                            </div>
+                            <div class="col s12 m4">
+                                <div class="cert-block">
+                                    <div class="cert-status status-progress mono-font">STAGE: INITIALIZING</div>
+                                    <h6 class="cert-name">Azure Fundamentals (AZ-900)</h6>
+                                    <p class="grey-text text-small">Pilvipalveluiden ydinpalvelut, hallinta ja
+                                        Microsoft-pilvi-infrastruktuuri.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. YHTEYDENOTTO -->
+    <section class="section scrollspy" id="contact-uplink" style="padding-bottom: 90px;">
+        <div class="container">
+            <div class="row">
+                <div class="col s12 m8 offset-m2">
+                    <div class="contact-terminal z-depth-4">
+                        <div class="section-heading center-align" style="margin-bottom: 30px;">
+                            <span class="mono-font cyan-text text-accent-3">// UPLINK_TRANSMITTER</span>
+                            <h3>Ota yhteyttä</h3>
+                            <p class="grey-text">Valmis työ- ja harjoittelumahdollisuuksille pilven ja infran parissa.
+                            </p>
+                        </div>
+
+                        <form action="mailto:rahel.karim7@yahoo.fi" method="POST" enctype="text/plain">
+                            <div class="input-field">
+                                <i class="material-icons prefix cyan-text">person_outline</i>
+                                <input type="text" name="name" id="name" required class="validate">
+                                <label for="name">Nimi / Yritys</label>
+                            </div>
+
+                            <div class="input-field">
+                                <i class="material-icons prefix cyan-text">mail_outline</i>
+                                <input type="email" name="email" id="email" required class="validate">
+                                <label for="email">Sähköpostiosoite</label>
+                                <span class="helper-text" data-error="Tarkista osoite"
+                                    data-success="Kelvollinen"></span>
+                            </div>
+
+                            <div class="input-field">
+                                <i class="material-icons prefix cyan-text">chat_bubble_outline</i>
+                                <textarea name="message" id="message" class="materialize-textarea" required></textarea>
+                                <label for="message">Viestisi</label>
+                            </div>
+
+                            <div class="center-align" style="margin-top: 35px;">
+                                <button type="submit" class="btn-large waves-effect waves-light btn-accent

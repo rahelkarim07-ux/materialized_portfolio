@@ -1,0 +1,704 @@
+/* ==========================================================================
+   1. MISSION CONTROL / THEME VARIABLES
+   ========================================================================== */
+:root {
+    --bg-deep: #05080e;
+    --bg-surface: #0b111a;
+    --bg-card: rgba(16, 24, 38, 0.75);
+    --border-color: rgba(0, 229, 255, 0.18);
+    --border-hover: rgba(0, 229, 255, 0.5);
+    --accent-cyan: #00f0ff;
+    --accent-blue: #3b82f6;
+    --accent-green: #00e676;
+    --text-primary: #f0f6fc;
+    --text-secondary: #8b949e;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--bg-deep);
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+.mono-font {
+    font-family: var(--font-mono) !important;
+}
+
+/* ==========================================================================
+   2. ELÄVÄ TAUSTAMOOTTORI (PUHDAS CSS, NÄKYVÄ JA GPU-KIIHDYTETTY)
+   ========================================================================== */
+.cyber-bg-engine {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    overflow: hidden;
+    background-color: #05080e;
+    pointer-events: none;
+}
+
+/* Nostetaan sivun varsinainen sisältö taustaa korkeammalle */
+.navbar-fixed,
+header,
+section,
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+/* 1. Rullaava hehkuruudukko */
+.moving-grid {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 50px);
+    background-image:
+        linear-gradient(to right, rgba(0, 240, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 240, 255, 0.08) 1px, transparent 1px);
+    background-size: 45px 45px;
+    animation: gridScroll 1.2s linear infinite;
+}
+
+@keyframes gridScroll {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(45px);
+    }
+}
+
+/* 2. Näkyvät ja pehmeästi liikkuvat neon-valokeilat */
+.glow-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.orb-cyan {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(0, 240, 255, 0.35) 0%, rgba(0, 240, 255, 0) 70%);
+    top: 10%;
+    left: 5%;
+    animation: orbMoveOne 10s ease-in-out infinite alternate;
+}
+
+.orb-blue {
+    width: 460px;
+    height: 460px;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.35) 0%, rgba(37, 99, 235, 0) 70%);
+    bottom: 10%;
+    right: 5%;
+    animation: orbMoveTwo 12s ease-in-out infinite alternate;
+}
+
+@keyframes orbMoveOne {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(120px, 80px) scale(1.2);
+    }
+
+    100% {
+        transform: translate(50px, 180px) scale(0.9);
+    }
+}
+
+@keyframes orbMoveTwo {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(-100px, -120px) scale(1.25);
+    }
+
+    100% {
+        transform: translate(-180px, -50px) scale(0.95);
+    }
+}
+
+/* 3. Putoavat kybersäteet (Data Streams) */
+.cyber-stream {
+    position: absolute;
+    width: 2px;
+    height: 120px;
+    background: linear-gradient(180deg, transparent, #00f0ff);
+    opacity: 0.7;
+    animation: dropStream linear infinite;
+}
+
+.stream-1 {
+    left: 12%;
+    animation-duration: 3s;
+    animation-delay: 0s;
+}
+
+.stream-2 {
+    left: 35%;
+    animation-duration: 4.5s;
+    animation-delay: 1.5s;
+}
+
+.stream-3 {
+    left: 62%;
+    animation-duration: 2.8s;
+    animation-delay: 0.7s;
+}
+
+.stream-4 {
+    left: 82%;
+    animation-duration: 3.8s;
+    animation-delay: 2.1s;
+}
+
+.stream-5 {
+    left: 94%;
+    animation-duration: 5s;
+    animation-delay: 0.3s;
+}
+
+@keyframes dropStream {
+    0% {
+        top: -150px;
+        opacity: 0;
+    }
+
+    30% {
+        opacity: 0.8;
+    }
+
+    100% {
+        top: 105vh;
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   3. YLÄPALKKI / TELEMETRIA-NAV
+   ========================================================================== */
+.nav-mission-control {
+    background: rgba(11, 17, 26, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: none;
+    height: 64px;
+    line-height: 64px;
+}
+
+.brand-tag {
+    color: var(--accent-cyan) !important;
+    font-weight: 700;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.telemetry-light {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent-green);
+    display: inline-block;
+    box-shadow: 0 0 10px var(--accent-green);
+    animation: pulseGlow 1.8s infinite;
+}
+
+@keyframes pulseGlow {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity: 0.7;
+    }
+}
+
+.btn-cv-download {
+    background: rgba(0, 240, 255, 0.1) !important;
+    color: var(--accent-cyan) !important;
+    border: 1px solid var(--accent-cyan) !important;
+    border-radius: 4px;
+    padding: 0 16px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    height: 38px;
+    line-height: 38px;
+    margin-top: 13px;
+    transition: all 0.25s ease;
+}
+
+.btn-cv-download:hover {
+    background: var(--accent-cyan) !important;
+    color: var(--bg-deep) !important;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+}
+
+/* ==========================================================================
+   4. HERO CONSOLE
+   ========================================================================== */
+.hero-console {
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+
+.terminal-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(0, 230, 118, 0.1);
+    color: var(--accent-green);
+    border: 1px solid rgba(0, 230, 118, 0.3);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin: 0 0 8px;
+    letter-spacing: -1px;
+    color: #ffffff;
+}
+
+.hero-role {
+    color: var(--accent-cyan);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.hero-lead {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-accent {
+    background: var(--accent-cyan) !important;
+    color: #05080e !important;
+    font-weight: 700;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+    transition: all 0.25s ease;
+}
+
+.btn-accent:hover {
+    background: #5df4ff !important;
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.6);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: var(--text-primary) !important;
+    border-radius: 4px;
+}
+
+.btn-outline:hover {
+    border-color: var(--accent-cyan) !important;
+    color: var(--accent-cyan) !important;
+}
+
+/* Terminaali-widgetti */
+.console-box {
+    background: #090e17;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.console-topbar {
+    background: #111827;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1f2937;
+}
+
+.circle-btn {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+.red-btn {
+    background: #ef4444;
+}
+
+.yellow-btn {
+    background: #f59e0b;
+}
+
+.green-btn {
+    background: #10b981;
+}
+
+.console-title {
+    color: #9ca3af;
+    font-size: 0.75rem;
+    margin-left: 10px;
+}
+
+.console-content {
+    padding: 20px;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+.output-row {
+    margin: 4px 0;
+    color: #d1d5db;
+}
+
+.cursor {
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0;
+    }
+}
+
+/* ==========================================================================
+   5. PROJEKTIKORTIT & JULKAISUT
+   ========================================================================== */
+.section-heading h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 6px 0 10px;
+}
+
+.project-card {
+    background: var(--bg-card) !important;
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-color);
+    border-radius: 8px !important;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-hover);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.project-type {
+    font-size: 0.75rem;
+    color: var(--accent-cyan);
+    margin-bottom: 8px;
+}
+
+.project-card .card-title {
+    font-weight: 700 !important;
+    font-size: 1.3rem !important;
+    color: #ffffff;
+}
+
+.card-desc {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    min-height: 75px;
+    line-height: 1.6;
+}
+
+.chip-tag {
+    display: inline-block;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: #9ca3af;
+    margin: 2px 4px 2px 0;
+    font-family: var(--font-mono);
+}
+
+.project-card .card-action {
+    background: transparent !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+    padding: 15px 20px !important;
+}
+
+/* ==========================================================================
+   6. MATERIALIZE TABS (OSAAMINEN, TYÖHISTORIA, SERTIT)
+   ========================================================================== */
+.telemetry-wrapper {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabs-cyber {
+    background: #0f172a !important;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.tabs-cyber .tab a {
+    color: #94a3b8 !important;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+}
+
+.tabs-cyber .tab a.active {
+    color: var(--accent-cyan) !important;
+    background: rgba(0, 240, 255, 0.05);
+}
+
+.tabs-cyber .indicator {
+    background-color: var(--accent-cyan) !important;
+    height: 3px;
+}
+
+.tab-pane {
+    padding: 35px 30px !important;
+}
+
+.tab-subtitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.skill-meter {
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+}
+
+.meter-bar {
+    background: #1e293b;
+    height: 6px;
+    border-radius: 3px;
+    margin-top: 6px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+}
+
+.timeline-stream {
+    position: relative;
+    padding-left: 20px;
+    border-left: 2px solid var(--border-color);
+}
+
+.stream-entry {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.stream-entry::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.stream-date {
+    font-size: 0.75rem;
+    color: var(--accent-cyan);
+}
+
+.stream-entry h6 {
+    margin: 4px 0 8px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* Sertit */
+.cert-block {
+    background: #0d1522;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    padding: 20px;
+}
+
+.cert-status {
+    font-size: 0.75rem;
+    margin-bottom: 8px;
+}
+
+.status-ready {
+    color: var(--accent-green);
+}
+
+.status-progress {
+    color: #f59e0b;
+}
+
+.cert-name {
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 6px;
+}
+
+.text-small {
+    font-size: 0.85rem;
+}
+
+/* ==========================================================================
+   7. YHTEYDENOTTOLOMAKE
+   ========================================================================== */
+.contact-terminal {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 40px;
+}
+
+.input-field input,
+.input-field textarea {
+    color: #fff !important;
+    border-bottom: 1px solid #1f2937 !important;
+}
+
+.input-field input:focus,
+.input-field textarea:focus {
+    border-bottom: 1px solid var(--accent-cyan) !important;
+    box-shadow: 0 1px 0 0 var(--accent-cyan) !important;
+}
+
+.input-field label {
+    color: #6b7280 !important;
+}
+
+.contact-direct-links {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #1f2937;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.contact-direct-links a {
+    color: #9ca3af;
+    font-size: 0.85rem;
+    transition: color 0.2s ease;
+}
+
+.contact-direct-links a:hover {
+    color: var(--accent-cyan);
+}
+
+/* ==========================================================================
+   8. MODAALIT & FOOTER
+   ========================================================================== */
+.terminal-modal {
+    background: #090e17 !important;
+    border: 1px solid var(--accent-cyan);
+    border-radius: 8px;
+}
+
+.terminal-modal .modal-content h4 {
+    font-size: 1.3rem;
+}
+
+.modal-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid #1f2937;
+    color: #d1d5db;
+}
+
+.modal-list code {
+    color: var(--accent-cyan);
+    background: rgba(0, 240, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+.terminal-modal .modal-footer {
+    background: #0e1624 !important;
+    border-top: 1px solid #1f2937;
+}
+
+.footer-terminal {
+    background: #030508;
+    padding: 30px 0;
+    border-top: 1px solid #111827;
+}
+
+.cyber-sidenav {
+    background: #0b111a !important;
+}
+
+.cyber-sidenav .user-header {
+    padding: 20px;
+}
+
+.cyber-sidenav a {
+    color: #e5e7eb !important;
+}
+
+@media (max-width: 600px) {
+    .hero-console {
+        padding-top: 30px;
+    }
+
+    .contact-terminal {
+        padding: 25px 15px;
+    }
+
+    .tab-pane {
+        padding: 20px 10px !important;
+    }
+}
