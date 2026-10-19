@@ -2,7 +2,7 @@
 
 A modern, responsive, terminal-inspired personal portfolio that serves as an interactive DevSecOps operational dashboard and technical showcase. Designed and developed as part of ICT studies (Taitotalo / Metropolia UAS Open Path).
 
-🌐 **Live Demo:** <https://rahelkarim07-ux.github.io/Rahel-Materialized-portfolio/>
+🌐 **Live Demo:** <https://rahelkarim07-ux.github.io/materialized_portfolio/>
 
 ## ⚡ Key Features
 
